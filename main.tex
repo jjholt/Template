@@ -4,6 +4,7 @@
 \usepackage{setspace} \doublespacing
 \usepackage{titlesec}
 \newcommand{\sectionbreak}{\clearpage}
+\usepackage[titletoc]{appendix}
 
 \usepackage{pgfplots}
 \usepackage{pgfplotstable, booktabs, array}
@@ -13,6 +14,7 @@
 \usepackage{tikz}
 \usepackage{import}
 
+\usepackage[nottoc]{tocbibind}
 \usepackage[authoryear, round, comma]{natbib} %Bibliography style
 \bibliographystyle{unsrtnat} %Bibliography style
 
@@ -31,10 +33,16 @@
 
 \begin{document}
 	\tableofcontents
-\section{Filters}
-	\subimport{files/}{BackgroundKnowledge}
-\section{Analysis}
-	\subimport{files/}{Analysis}
+
+	\section{}
+		\subimport{files/}{1}
+	\section{}
+		\subimport{files/}{2}
 	
 	\bibliography{bibliography}
+
+	\begin{appendices}
+		\section{Matlab code}
+		\subimport{files/}{appendix.tex}
+	\end{appendices}
 \end{document}
