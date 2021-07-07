@@ -1,35 +1,66 @@
-\documentclass[12pt,a4paper]{article}
-\usepackage[letterpaper]{geometry}
-\geometry{top=1.0in, bottom=1.0in, left=1.0in, right=1.0in}
-\usepackage{setspace} \doublespacing
+\documentclass[oneside]{article}
+\usepackage{geometry}
+	\geometry{top=1.0in, bottom=1.0in, left=1.0in, right=1.0in}
+\usepackage{setspace}
+	\doublespacing
 \usepackage{titlesec}
-\newcommand{\sectionbreak}{\clearpage}
-\usepackage[titletoc]{appendix}
+	\titleformat{\chapter}[block]{\huge\bfseries}{}{0.1ex}{}[]
+	\newcommand{\sectionbreak}{\clearpage}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 
+%Maths
 \usepackage{pgfplots}
 \usepackage{pgfplotstable, booktabs, array}
-\pgfplotsset{compat=1.16}
+	\pgfplotsset{compat=newest}
+	\usepgfplotslibrary{patchplots}
+	\pgfplotsset{plot coordinates/math parser=false}
 \usepackage{amssymb, amsmath}
-\usepackage{algorithm2e}
+\usepackage{cancel}
 \usepackage{tikz}
-\usepackage{import}
+	\usetikzlibrary{plotmarks}
+	\usetikzlibrary{arrows.meta}
+	\usetikzlibrary{positioning,shapes,arrows}
+	%Control blocks
+	\tikzstyle{block} = [draw, minimum width = 2cm, minimum height = 1.2cm, fill=blue!5]
+	\tikzstyle{sum} = [draw, fill=blue!5, circle, node distance=1cm]
+\usepackage{siunitx} %SI units formatting
 
+%Electric circuits
+\usepackage{circuitikz}
+
+%Organisation
+\usepackage{import}
 \usepackage[nottoc]{tocbibind}
 \usepackage[authoryear, round, comma]{natbib} %Bibliography style
 \bibliographystyle{unsrtnat} %Bibliography style
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
 
-\usepackage[numbered,framed]{matlab-prettifier}
-\usepackage[T1]{fontenc}
-\lstset{
-	style              = Matlab-editor,
-	basicstyle         = \fontsize{10}{9}\mlttfamily,
-	escapechar         = ",
-	mlshowsectionrules = true,
+%Importing inkscape images with \incfig
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
 }
 
-%% Not required packages. Read description!
-%\usepackage{circuitikz} %Electric circuits
-\usepackage{siunitx} %SI units formatting
+%Code
+\usepackage{listings}
+	\lstset{
+		numbers=left, frame=single, breaklines=true, %Keep text inside a frame, and number each line.
+		basicstyle = \scriptsize\ttfamily, %smaller size, monospaced
+	}
+
+% Miscellanious
+\usepackage{hyperref}
+	\hypersetup{
+		colorlinks=true,
+		linkcolor=blue,
+		filecolor=magenta,      
+		urlcolor=cyan,
+	}
+\usepackage{pmboxdraw}
+\usepackage{appendix}
 
 \begin{document}
 	\tableofcontents
