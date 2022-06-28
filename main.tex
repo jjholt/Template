@@ -1,0 +1,14 @@
+\documentclass[oneside]{report}
+\input{settings.tex}
+\begin{document}
+\pagenumbering{roman}
+	\tableofcontents
+	\listoffigures
+	% \listoftables 
+	\clearpage
+\pagenumbering{arabic}
+
+	\section{Introduction}
+	\subimport{src/}{introduction.tex}
+	\bibliography{bibliography}
+\end{document}
